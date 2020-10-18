@@ -15,6 +15,7 @@ namespace SortingVisualization
     {
         private int[] heightArray;
         private Graphics graphics;
+        private Dictionary<string, ISortAlgorithm> algorithmDict;
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace SortingVisualization
             sortButton.Click += Sort;
 
             InitializeArray();
+            InitializeAlgorithmNames();
+            InitializeDictionary();
             RenderArray(null);
         }
 
@@ -61,30 +64,46 @@ namespace SortingVisualization
             RenderArray(null);
         }
 
+        private void InitializeAlgorithmNames()
+        {
+            algorithmList.Items.Add("Bubble sort");
+            algorithmList.Items.Add("Insertion sort");
+            algorithmList.SelectedIndex = 0;
+        }
+
+        private void InitializeDictionary()
+        {
+            algorithmDict = new Dictionary<string, ISortAlgorithm>();
+            algorithmDict.Add("Bubble sort", new BubbleSort(heightArray));
+            algorithmDict.Add("Insertion sort", new InsertionSort(heightArray));
+        }
+
         private void Sort(object sender, EventArgs e)
         {
-            ISortAlgorithm algorithm = new BubbleSort(heightArray);
+            ISortAlgorithm algorithm = algorithmDict[(string)algorithmList.SelectedItem];
             while (!algorithm.Finished())
             {
                 StepChanges sc = algorithm.Step();
                 RenderArray(sc);
             }
             RenderArray(null);
+            algorithm.Reset();
         }
 
 
         private void RenderArray(StepChanges sc)
-        {
+        {     
             graphics.Clear(screen.BackColor);
             SolidBrush backgroundBrush = new SolidBrush(Color.LightBlue);
             Pen pen = new Pen(Color.Black);
             for (int i = 0; i < heightArray.Length; ++i)
                 graphics.FillRectangle(backgroundBrush, 10 + i * Params.rectWidth, 10, 
                     Params.rectWidth, heightArray[i]);
-                
-            
+
             if(sc != null)
             {
+                bool indOutOfBounds = sc.i >= heightArray.Length || sc.j >= heightArray.Length;
+                if (indOutOfBounds) return;
                 Color color = sc.swaped ? Color.Red : Color.Green;
                 SolidBrush indicatorBrush = new SolidBrush(color);
                 graphics.FillRectangle(indicatorBrush, 10 + sc.i * Params.rectWidth, 10, 

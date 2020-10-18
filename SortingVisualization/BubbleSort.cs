@@ -45,9 +45,7 @@ namespace SortingVisualization
             bool change = false;
             if(array[i] > array[j])
             {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                Helpers.Swap(array, i, j);
                 change = true;
             }
             ChangeIndices();

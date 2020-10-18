@@ -10,5 +10,7 @@ namespace SortingVisualization
     {
         StepChanges Step();
         bool Finished();
+
+        void Reset();
     }
 }
