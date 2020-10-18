@@ -16,9 +16,7 @@ namespace SortingVisualization
         public BubbleSort(int[] array)
         {
             Array = array;
-            i = 0;
-            j = 1;
-            passNumber = 1;
+            Reset();
         }
 
         public void Reset()

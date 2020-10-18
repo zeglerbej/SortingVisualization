@@ -10,12 +10,14 @@ namespace SortingVisualization
     {
         private int i;
         private int max;
+        private int maxInd;
         private int passNumber;
         public int[] Array { get; set; }
 
         public SelectionSort(int[] array)
         {
             Array = array;
+            Reset();
         }
 
         public bool Finished()
@@ -25,7 +27,10 @@ namespace SortingVisualization
 
         public void Reset()
         {
-            throw new NotImplementedException();
+            i = 1;
+            max = Array[0];
+            passNumber = 1;
+            maxInd = 0;
         }
 
         public StepChanges Step()
