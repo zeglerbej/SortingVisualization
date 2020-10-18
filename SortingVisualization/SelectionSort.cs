@@ -22,7 +22,7 @@ namespace SortingVisualization
 
         public bool Finished()
         {
-            throw new NotImplementedException();
+            return passNumber == Array.Length;
         }
 
         public void Reset()
@@ -35,7 +35,26 @@ namespace SortingVisualization
 
         public StepChanges Step()
         {
-            throw new NotImplementedException();
+            StepChanges sc = null;
+            if(Array[i] > max)
+            {
+                sc = new StepChanges(i, maxInd, false);
+                max = Array[i];
+                maxInd = i;
+            }
+            else sc = new StepChanges(i, maxInd, true);
+            if (i == Array.Length - passNumber)
+            {
+                Helpers.Swap(Array, maxInd, i);
+                sc = new StepChanges(i, maxInd, i != maxInd);
+                ++passNumber;
+                i = 1;
+                max = Array[0];
+                maxInd = 0;
+                return sc;
+            }
+            ++i;
+            return sc;
         }
     }
 }
