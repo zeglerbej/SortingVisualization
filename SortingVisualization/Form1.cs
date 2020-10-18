@@ -85,6 +85,7 @@ namespace SortingVisualization
             {
                 StepChanges sc = algorithm.Step();
                 RenderArray(sc);
+                Thread.Sleep(10);
             }
             RenderArray(null);
             algorithm.Reset();
