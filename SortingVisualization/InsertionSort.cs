@@ -10,11 +10,11 @@ namespace SortingVisualization
     {
         private int i;
         private int j;
-        private int[] array;
+        public int[] Array { get; set; }
 
         public InsertionSort(int[] array)
         {
-            this.array = array;
+            Array = array;
             i = 0;
             j = 1;
         }
@@ -27,21 +27,21 @@ namespace SortingVisualization
 
         public bool Finished()
         {
-            return j == array.Length;
+            return j == Array.Length;
         }
 
         public StepChanges Step()
         {
-            if(i == -1 || array[i] < array[j])
+            if(i == -1 || Array[i] < Array[j])
             {
                 int k = j;
-                int temp = array[j];                
+                int temp = Array[j];                
                 while(k > i + 1)
                 {
-                    array[k] = array[k - 1];
+                    Array[k] = Array[k - 1];
                     --k;
                 }
-                array[i + 1] = temp;
+                Array[i + 1] = temp;
                 ++j;
                 i = j - 1;
                 return new StepChanges(Math.Max(i,0), j, false);

@@ -8,6 +8,7 @@ namespace SortingVisualization
 {
     public interface ISortAlgorithm
     {
+        int[] Array { get; set; }
         StepChanges Step();
         bool Finished();
 

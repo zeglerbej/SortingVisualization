@@ -10,12 +10,12 @@ namespace SortingVisualization
     {
         private int i;
         private int j;
-        private int[] array;
+        public int[] Array { get; set; }
         private int passNumber;
 
         public BubbleSort(int[] array)
         {
-            this.array = array;
+            Array = array;
             i = 0;
             j = 1;
             passNumber = 1;
@@ -32,7 +32,7 @@ namespace SortingVisualization
         {
             ++i;
             ++j;
-            if(j == array.Length - passNumber + 1)
+            if(j == Array.Length - passNumber + 1)
             {
                 i = 0;
                 j = 1;
@@ -43,9 +43,9 @@ namespace SortingVisualization
         public StepChanges Step()
         {
             bool change = false;
-            if(array[i] > array[j])
+            if(Array[i] > Array[j])
             {
-                Helpers.Swap(array, i, j);
+                Helpers.Swap(Array, i, j);
                 change = true;
             }
             ChangeIndices();
@@ -56,7 +56,7 @@ namespace SortingVisualization
 
         public bool Finished()
         {
-            return passNumber == array.Length;
+            return passNumber == Array.Length;
         }
     }
 }
