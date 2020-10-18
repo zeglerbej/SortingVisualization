@@ -104,13 +104,15 @@ namespace SortingVisualization
             if(sc != null)
             {
                 bool indOutOfBounds = sc.i >= heightArray.Length || sc.j >= heightArray.Length;
-                if (indOutOfBounds) return;
-                Color color = sc.swaped ? Color.Red : Color.Green;
-                SolidBrush indicatorBrush = new SolidBrush(color);
-                graphics.FillRectangle(indicatorBrush, 10 + sc.i * Params.rectWidth, 10, 
-                    Params.rectWidth, heightArray[sc.i]);
-                graphics.FillRectangle(indicatorBrush, 10 + sc.j * Params.rectWidth, 10,
-                    Params.rectWidth, heightArray[sc.j]);
+                if (!indOutOfBounds)
+                {
+                    Color color = sc.swaped ? Color.Red : Color.Green;
+                    SolidBrush indicatorBrush = new SolidBrush(color);
+                    graphics.FillRectangle(indicatorBrush, 10 + sc.i * Params.rectWidth, 10,
+                        Params.rectWidth, heightArray[sc.i]);
+                    graphics.FillRectangle(indicatorBrush, 10 + sc.j * Params.rectWidth, 10,
+                        Params.rectWidth, heightArray[sc.j]);
+                }
             }
 
             for (int i = 0; i < heightArray.Length; ++i)
