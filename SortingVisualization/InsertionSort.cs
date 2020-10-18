@@ -44,10 +44,10 @@ namespace SortingVisualization
                 array[i + 1] = temp;
                 ++j;
                 i = j - 1;
-                return new StepChanges(Math.Max(i,0), j, true);
+                return new StepChanges(Math.Max(i,0), j, false);
             }
             --i;
-            return new StepChanges(Math.Max(i, 0), j, false);
+            return new StepChanges(Math.Max(i, 0), j, true);
         }
     }
 }
