@@ -69,7 +69,8 @@ namespace SortingVisualization
             algorithmList.Items.Add("Bubble sort");
             algorithmList.Items.Add("Insertion sort");
             algorithmList.Items.Add("Selection sort");
-            algorithmList.Items.Add("Merge sort");
+            algorithmList.Items.Add("Mergesort");
+            algorithmList.Items.Add("Quicksort");
             algorithmList.SelectedIndex = 0;
         }
 
@@ -79,7 +80,8 @@ namespace SortingVisualization
             algorithmDict.Add("Bubble sort", new BubbleSort(heightArray));
             algorithmDict.Add("Insertion sort", new InsertionSort(heightArray));
             algorithmDict.Add("Selection sort", new SelectionSort(heightArray));
-            algorithmDict.Add("Merge sort", new MergeSort(heightArray));
+            algorithmDict.Add("Mergesort", new MergeSort(heightArray));
+            algorithmDict.Add("Quicksort", new QuickSort(heightArray));
         }
 
         private void Sort(object sender, EventArgs e)
