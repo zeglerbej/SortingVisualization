@@ -72,6 +72,7 @@ namespace SortingVisualization
             algorithmList.Items.Add("Mergesort");
             algorithmList.Items.Add("Quicksort");
             algorithmList.Items.Add("Shell sort");
+            algorithmList.Items.Add("Heap sort");
             algorithmList.SelectedIndex = 0;
         }
 
@@ -84,6 +85,7 @@ namespace SortingVisualization
             algorithmDict.Add("Mergesort", new MergeSort(heightArray));
             algorithmDict.Add("Quicksort", new QuickSort(heightArray));
             algorithmDict.Add("Shell sort", new ShellSort(heightArray));
+            algorithmDict.Add("Heap sort", new HeapSort(heightArray));
         }
 
         private void Sort(object sender, EventArgs e)

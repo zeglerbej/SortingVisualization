@@ -53,6 +53,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeapSort.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="InsertionSort.cs" />
     <Compile Include="ISortAlgorithm.cs" />
