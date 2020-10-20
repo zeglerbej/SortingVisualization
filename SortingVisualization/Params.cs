@@ -11,5 +11,6 @@ namespace SortingVisualization
         public const int arraySize = 50;
         public const int offset = 5;
         public const int rectWidth = 10;
+        public const int delay = 10;
     }
 }
